@@ -5,7 +5,10 @@ const mongoose = require('mongoose');
 app.use(cookieParser());
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/mernapp', {useNewUrlParser : true, useUnifiedTopology: true}, () => {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://joebrashear:MerryChristmas@cluster0-k53pf.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser : true, 
+    useUnifiedTopology: true
+}, () => {
     console.log('sucessfully connected to database');
 });
 
